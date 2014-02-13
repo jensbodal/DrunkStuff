@@ -16,6 +16,9 @@ public class BAC_Calculator {
     }
     
     public double getBAC() {
+        if (BAC < 0) {
+            BAC = 0;
+        }
         return BAC;
     }
     
