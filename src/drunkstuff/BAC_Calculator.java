@@ -13,12 +13,12 @@ public class BAC_Calculator {
     BAC_Calculator(Person person) {
         this.person = person;
         this.BAC = (alcoholAbsorbed() - alcoholMetabolized());
+        if (this.BAC < 0) {
+            this.BAC = 0;
+        }
     }
     
     public double getBAC() {
-        if (BAC < 0) {
-            BAC = 0;
-        }
         return BAC;
     }
     
