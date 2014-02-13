@@ -17,7 +17,7 @@ public class DrunkStuff
          *  Gender, Weight, Age, Drinks, Hours
          * );
          */
-        Person person = new Person("male", 220, 27, 3, 8);
+        Person person = new Person("male", 220, 27, 5, 1);
         System.out.printf("%.5s%n", person.getBAC());
         System.out.println(person.AmIDrunk());
     }
