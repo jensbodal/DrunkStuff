@@ -4,7 +4,7 @@ package drunkstuff;
  *
  * @author jensb
  */
-public class DrunkStuff 
+public class DrunkStuff
 {
 
     /**
@@ -20,6 +20,9 @@ public class DrunkStuff
         Person person = new Person("male", 220, 27, 5, 1);
         System.out.printf("%.5s%n", person.getBAC());
         System.out.println(person.AmIDrunk());
+        javax.swing.JFrame test = new javax.swing.JFrame();
+        System.out.println(test.getWindowListeners().getClass());
+        
     }
 
 }

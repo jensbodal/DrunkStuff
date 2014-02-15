@@ -4,7 +4,7 @@ package drunkstuff;
  *
  * @author jensb
  */
-public class Person {
+public class Person implements abs {
     
     private final String FEMALE = "FEMALE";
     private final String MALE = "MALE";
@@ -20,6 +20,7 @@ public class Person {
     private double BAC;
     private BAC_Calculator calc;
     
+       
     public Person(String gender, double weight, double age, 
             double drinks, double hours) {
         setGender(gender);
@@ -93,6 +94,12 @@ public class Person {
         return numberOfDrinks;
     }
     
+    @Override
+    public double missing() {
+        return 0;
+    }
+    
+    @Override
     public double getBAC() {
         return BAC;
     }
