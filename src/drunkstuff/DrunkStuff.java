@@ -1,5 +1,7 @@
 package drunkstuff;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author jensb
@@ -17,12 +19,13 @@ public class DrunkStuff
          *  Gender, Weight, Age, Drinks, Hours
          * );
          */
-        Person person = new Person("male", 220, 27, 5, 1);
-        System.out.printf("%.5s%n", person.getBAC());
+        Person person = new Person("Male", 155, 27, 8, 4);
         System.out.println(person.AmIDrunk());
-        javax.swing.JFrame test = new javax.swing.JFrame();
-        System.out.println(test.getWindowListeners().getClass());
-        
+        System.out.println(person.getBAC());
+        Calculator_View view = new Calculator_View(person);
+        Calculator_Controller controller = new Calculator_Controller(view, person);
+        controller.updateUI();
+
     }
 
 }

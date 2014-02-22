@@ -20,7 +20,14 @@ public class Person implements abs {
     private double BAC;
     private BAC_Calculator calc;
     
-       
+    public Person() {
+        setGender("Male");
+        setWeight(220);
+        setAge(30);
+        setNumberOfDrinks(1);
+        setHoursSinceLastDrink(1);
+    }   
+    
     public Person(String gender, double weight, double age, 
             double drinks, double hours) {
         setGender(gender);
