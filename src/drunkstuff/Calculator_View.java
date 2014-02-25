@@ -24,8 +24,10 @@ public class Calculator_View extends JFrame {
     JTextField age;
     JComboBox sex;
     JPanel panel;
+    Person person;
     
     public Calculator_View(Person person) {
+        this.person = person;
         init();
     }
     
@@ -42,13 +44,24 @@ public class Calculator_View extends JFrame {
     private JPanel mainPanel() {
         panel = new JPanel();
         panel.add(sexChooser());
+        panel.add(BAC_Field());
         return this.panel;
     }
     
-    private JComboBox sexChooser() {
+    public JComboBox sexChooser() {
         String[] sexes = {"Male", "Female"};
         this.sex = new JComboBox(sexes);
-        
         return this.sex;
+    }
+    
+    public JComboBox getSexChooser() {
+        return sexChooser();
+    }
+    
+    private JTextField BAC_Field() {
+        JTextField field = new JTextField();
+        field.setText(String.valueOf(this.person.getBAC()));
+        field.setEditable(false);
+        return field;
     }
 }
