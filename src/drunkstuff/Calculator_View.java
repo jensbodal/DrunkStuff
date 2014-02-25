@@ -5,6 +5,8 @@
 package drunkstuff;
 
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -15,53 +17,70 @@ import javax.swing.JTextField;
  * @author Jens Bodal
  */
 public class Calculator_View extends JFrame {
-    private final int WIDTH = 400;
-    private final int HEIGHT = 400;
+    private final int v_WIDTH = 400;
+    private final int v_HEIGHT = 400;
     private final int X = 10;
     private final int Y = 10;
-    
-    BorderLayout layout; // = new BorderLayout();
-    JTextField age;
-    JComboBox sex;
-    JPanel panel;
-    Person person;
+    private JComboBox sexChooser;
+    private JTextField BAC_Field;
+    //
+    private BorderLayout layout; // = new BorderLayout();
+    private JTextField age;
+    private JPanel panel;
+    private Person person;
     
     public Calculator_View(Person person) {
         this.person = person;
         init();
     }
     
+    public void updatePerson(Person person) {
+        this.person = person;
+        setBAC_Field(person.getBAC());
+    }
+    
     private void init() {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         layout = new BorderLayout();
         this.setLayout(layout);
-        this.setBounds(X, Y, WIDTH, HEIGHT);
+        this.setBounds(X, Y, v_WIDTH, v_HEIGHT);
         
+        // Initialize all fields
+        initSexChooser();
+        initBAC_Field();
         this.add(mainPanel());
         
     }
     
     private JPanel mainPanel() {
         panel = new JPanel();
-        panel.add(sexChooser());
-        panel.add(BAC_Field());
+        panel.add(sexChooser);
+        panel.add(BAC_Field);
         return this.panel;
     }
     
-    public JComboBox sexChooser() {
+    private void initSexChooser() {
         String[] sexes = {"Male", "Female"};
-        this.sex = new JComboBox(sexes);
-        return this.sex;
+        sexChooser = new JComboBox(sexes);
+        
+    }
+    
+    public String getSelectedSex() {
+        return sexChooser.getSelectedItem().toString();
     }
     
     public JComboBox getSexChooser() {
-        return sexChooser();
+        return sexChooser;
     }
     
-    private JTextField BAC_Field() {
-        JTextField field = new JTextField();
-        field.setText(String.valueOf(this.person.getBAC()));
-        field.setEditable(false);
-        return field;
+    private void initBAC_Field() {
+        BAC_Field = new JTextField();
+        BAC_Field.setText(String.valueOf(this.person.getBAC()));
+        BAC_Field.setEditable(false);
+    }
+    
+    private void setBAC_Field(double BAC) {
+        String stringBAC = String.valueOf(BAC);
+        BAC_Field.setText(stringBAC);
     }
 }

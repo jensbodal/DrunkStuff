@@ -18,9 +18,7 @@ public class Calculator_Controller {
     public Calculator_Controller(Calculator_View view, Person person) {
         this.person = person;
         this.view = view;
-                this.view.sexChooser().addActionListener(L_sex);
-
-        addActionListeners();
+        this.addActionListeners();
     }
     
     public void updateUI() {
@@ -28,19 +26,27 @@ public class Calculator_Controller {
     }
     
     private void addActionListeners() {
-        this.view.getSexChooser().addActionListener(L_sex);
-        this.view.sexChooser().addActionListener(L_sex);
+        view.getSexChooser().addActionListener(L_Sex());
+        //this.view.getSexChooser().getSelectedItem();
+        //this.view.sexChooser.addActionListener(L_Sex());
+        
     }
     
-    
-    private ActionListener L_sex = new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            System.out.println(e.getActionCommand());
-                        System.out.println(e.getWhen());
-
-        }
+    private ActionListener L_Sex() {
         
-    };
+        return new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                String sex = view.getSelectedSex();
+                person = new Person(sex, person.getWeight(), person.getAge(),
+                        person.getNumberOfDrinks(), 
+                        person.getHoursSinceFirstDrink());
+                view.updatePerson(person);
+            }
+        };
+    }
+
+        
+    
     
 }

@@ -22,10 +22,10 @@ public class Person implements abs {
     
     public Person() {
         setGender("Male");
-        setWeight(220);
-        setAge(30);
-        setNumberOfDrinks(1);
-        setHoursSinceLastDrink(1);
+        setWeight(this.weight);
+        setAge(this.age);
+        setNumberOfDrinks(this.numberOfDrinks);
+        setHoursSinceLastDrink(this.hours);
     }   
     
     public Person(String gender, double weight, double age, 
