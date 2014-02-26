@@ -7,6 +7,7 @@ package drunkstuff;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JApplet;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -16,7 +17,7 @@ import javax.swing.JTextField;
  *
  * @author Jens Bodal
  */
-public class Calculator_View extends JFrame {
+public class Calculator_View extends JApplet {
     private final int v_WIDTH = 400;
     private final int v_HEIGHT = 400;
     private final int X = 10;
@@ -31,7 +32,7 @@ public class Calculator_View extends JFrame {
     
     public Calculator_View(Person person) {
         this.person = person;
-        init();
+        startup();
     }
     
     public void updatePerson(Person person) {
@@ -39,8 +40,7 @@ public class Calculator_View extends JFrame {
         setBAC_Field(person.getBAC());
     }
     
-    private void init() {
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    private void startup() {
         layout = new BorderLayout();
         this.setLayout(layout);
         this.setBounds(X, Y, v_WIDTH, v_HEIGHT);
