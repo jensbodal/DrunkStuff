@@ -5,11 +5,7 @@
 package drunkstuff;
 
 import java.awt.BorderLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.JApplet;
 import javax.swing.JComboBox;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -17,7 +13,7 @@ import javax.swing.JTextField;
  *
  * @author Jens Bodal
  */
-public class Calculator_View extends JFrame {
+public class Calculator_View extends JPanel {
     private final int v_WIDTH = 400;
     private final int v_HEIGHT = 400;
     private final int X = 10;

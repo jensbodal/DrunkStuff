@@ -22,7 +22,7 @@ public class DrunkStuff_Main extends JApplet {
         Calculator_View view = new Calculator_View(person);
         Calculator_Controller controller = 
                 new Calculator_Controller(view, person);
-        controller.updateUI();
+        this.add(view);
 
     }
 
