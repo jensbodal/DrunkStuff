@@ -1,19 +1,18 @@
 package drunkstuff;
 
-import javax.swing.JFrame;
+import javax.swing.JApplet;
+
 
 /**
  *
  * @author jensb
  */
-public class DrunkStuff_Main
-{
+public class DrunkStuff_Main extends JApplet {
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) 
-    {
+    public DrunkStuff_Main() {
         /*
          * Person(
          *  Gender, Weight, Age, Drinks, Hours

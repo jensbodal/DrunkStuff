@@ -23,6 +23,7 @@ public class Calculator_Controller {
     
     public void updateUI() {
         view.setVisible(true);
+        
     }
     
     private void addActionListeners() {

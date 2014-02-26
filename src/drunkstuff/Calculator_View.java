@@ -17,7 +17,7 @@ import javax.swing.JTextField;
  *
  * @author Jens Bodal
  */
-public class Calculator_View extends JApplet {
+public class Calculator_View extends JFrame {
     private final int v_WIDTH = 400;
     private final int v_HEIGHT = 400;
     private final int X = 10;
