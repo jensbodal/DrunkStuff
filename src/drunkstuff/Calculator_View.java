@@ -20,6 +20,10 @@ public class Calculator_View extends JPanel {
     private final int Y = 10;
     private JComboBox sexChooser;
     private JTextField BAC_Field;
+    private JTextField age_Field;
+    private JTextField weight_Field;
+    private JTextField drinks_Field;
+    private JTextField hours_Field;
     //
     private BorderLayout layout; // = new BorderLayout();
     private JTextField age;
@@ -34,6 +38,7 @@ public class Calculator_View extends JPanel {
     public void updatePerson(Person person) {
         this.person = person;
         setBAC_Field(person.getBAC());
+        setAge_Field(person.getAge());
     }
     
     private void startup() {
@@ -44,6 +49,7 @@ public class Calculator_View extends JPanel {
         // Initialize all fields
         initSexChooser();
         initBAC_Field();
+        initAge_Field();
         this.add(mainPanel());
         
     }
@@ -52,6 +58,7 @@ public class Calculator_View extends JPanel {
         panel = new JPanel();
         panel.add(sexChooser);
         panel.add(BAC_Field);
+        panel.add(age_Field);
         return this.panel;
     }
     
@@ -78,5 +85,14 @@ public class Calculator_View extends JPanel {
     private void setBAC_Field(double BAC) {
         String stringBAC = String.valueOf(BAC);
         BAC_Field.setText(stringBAC);
+    }
+    
+    private void initAge_Field() {
+        age_Field = new JTextField();
+        age_Field.setText(String.valueOf(this.person.getAge()));
+    }
+    
+    private void setAge_Field(int age) {
+        age_Field.setText(String.valueOf(age));
     }
 }

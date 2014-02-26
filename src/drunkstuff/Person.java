@@ -8,13 +8,13 @@ public class Person implements abs {
     
     private final String FEMALE = "FEMALE";
     private final String MALE = "MALE";
-    private final double MINIMUM_AGE = 12;
+    private final int MINIMUM_AGE = 12;
     
     private double numberOfDrinks;
     private double weight;
     private double hours; // likely moved 
     private String gender;
-    private double age;
+    private int age;
     private Legality legality;
     private double legalBAC;
     private double BAC;
@@ -28,7 +28,7 @@ public class Person implements abs {
         setHoursSinceLastDrink(this.hours);
     }   
     
-    public Person(String gender, double weight, double age, 
+    public Person(String gender, double weight, int age, 
             double drinks, double hours) {
         setGender(gender);
         setWeight(weight);
@@ -71,7 +71,7 @@ public class Person implements abs {
         this.weight = weight;
     }
     
-    private void setAge(double age) {
+    private void setAge(int age) {
         if (age < MINIMUM_AGE) {
             age = MINIMUM_AGE;
         }
@@ -119,7 +119,7 @@ public class Person implements abs {
         return gender;
     }
     
-    public double getAge() {
+    public int getAge() {
         return age;
     }
     
@@ -135,10 +135,10 @@ public class Person implements abs {
         MINOR (20, 0.02),
         ADULT (21, 0.08);
         
-        private final double AGE;
+        private final int AGE;
         private final double LEGAL_BAC;
         
-        Legality(double AGE, double LEGAL_BAC) {
+        Legality(int AGE, double LEGAL_BAC) {
             this.AGE = AGE;
             this.LEGAL_BAC = LEGAL_BAC;
         }
