@@ -1,4 +1,4 @@
-package drunkstuff;
+package drunkstuff.calculator;
 
 /**
  *

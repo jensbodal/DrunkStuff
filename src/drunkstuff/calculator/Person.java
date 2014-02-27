@@ -1,4 +1,4 @@
-package drunkstuff;
+package drunkstuff.calculator;
 
 /**
  *
@@ -11,8 +11,8 @@ public class Person implements abs {
     public static final int MINIMUM_AGE = 12;
     public static final double DEFAULT_WEIGHT = 150;
     public static final int DEFAULT_AGE = 21;
-    public static final double DEFAULT_DRINKS = 7;
-    public static final double DEFAULT_HOURS = 9;
+    public static final double DEFAULT_DRINKS = 4;
+    public static final double DEFAULT_HOURS = 2;
     private double numberOfDrinks;
     private double weight;
     private double hours; // likely moved 
@@ -27,6 +27,7 @@ public class Person implements abs {
         this(MALE, DEFAULT_WEIGHT, DEFAULT_AGE, DEFAULT_DRINKS, DEFAULT_HOURS);
     }   
     
+   
     public Person(String gender, double weight, int age, 
             double drinks, double hours) {
         setGender(gender);

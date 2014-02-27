@@ -2,8 +2,10 @@
  * Calculator_Controller.java
  */ 
 
-package drunkstuff;
+package drunkstuff.controller;
 
+import drunkstuff.calculator.Person;
+import drunkstuff.view.Calculator_View;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -27,7 +29,7 @@ public class Calculator_Controller {
     }
     
     private void addActionListeners() {
-        view.getSexChooser().addActionListener(L_Sex());
+        view.getGenderChooser().addActionListener(L_Sex());
         view.getAge_Field().addActionListener(L_Age());
         view.getWeight_Field().addActionListener(L_Weight());
         view.getDrinks_Field().addActionListener(L_Drinks());
@@ -39,7 +41,7 @@ public class Calculator_Controller {
         return new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                String sex = view.getSelectedSex();
+                String sex = view.getSelectedGender();
                 person = new Person(
                         sex, 
                         person.getWeight(), 
