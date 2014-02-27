@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- ########################## IMPORTANT NOTE ############################ -->
+<!-- This preview HTML page will work only with JDK 6 update 10 and higher! -->
+<!-- ###################################################################### -->
+<html>
+    <head>
+        <title>Am I drunk?</title>
+    </head>
+    <body>
+        <h3>BAC Calculator - By Jens Bodal</h3>
+        <script src="http://java.com/js/deployJava.js"></script>
+        <script>
+            var attributes = {
+                code:       "dist/drunkstuff.DrunkStuff_Main",
+                archive:    "dist/DrunkStuff.jar",
+                width:      400,
+                height:     100
+            };
+            var parameters = {jnlp_href:"dist/launch.jnlp"}; <!-- Applet Parameters -->
+            var version = "1.7"; <!-- Required Java Version -->
+            deployJava.runApplet(attributes, parameters, version);
+        </script>
+        <!-- Or use the following applet element to launch the applet using jnlp_href -->
+        <!--
+        <applet width="400" height="100">
+            <param name="jnlp_href" value="dist/launch.jnlp"/>
+        </applet>
+        -->
+    </body>
+</html>

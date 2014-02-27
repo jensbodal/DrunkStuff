@@ -8,7 +8,6 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Rectangle;
 import javax.swing.JComboBox;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -64,13 +63,6 @@ public class Calculator_View extends JPanel {
         initDrinks_Field();
         initHours_Field();
         this.add(mainPanel());
-        // Add all panels
-//        this.add(sexChooser);
-//        this.add(BAC_Field);
-//        this.add(age_Field);
-//        this.add(weight_Field);
-//        this.add(drinks_Field);
-//        this.add(hours_Field);
     }
     
     private JPanel mainPanel() {
@@ -87,7 +79,6 @@ public class Calculator_View extends JPanel {
     private void initSexChooser() {
         String[] sexes = {"Male", "Female"};
         sexChooser = new JComboBox(sexes);
-        
     }
     
     public String getSelectedSex() {
