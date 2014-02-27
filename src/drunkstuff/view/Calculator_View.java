@@ -5,13 +5,10 @@
 package drunkstuff.view;
 
 import drunkstuff.calculator.Person;
-import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.Rectangle;
-import javax.swing.Box;
-import javax.swing.BoxLayout;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -26,8 +23,8 @@ public class Calculator_View extends JPanel {
      * Storing these values here to be called upon for tests if default
      * values are wanted
      */
-    private static final int v_WIDTH = 215;
-    private static final int v_HEIGHT = 250;
+    private static final int v_WIDTH = 525;
+    private static final int v_HEIGHT = 180;
     private static final int X = 10;
     private static final int Y = 10;
     public final static Rectangle bounds = 
@@ -52,6 +49,8 @@ public class Calculator_View extends JPanel {
     // Hours since first drink
     private JTextField hours_Field;
     private String hours_Label = "Hours since first drink:";
+    // Results Field
+    private JLabel results_Field;
     
     private Person person;
     
@@ -67,14 +66,13 @@ public class Calculator_View extends JPanel {
         setWeight_Field(person.getWeight());
         setDrinks_Field(person.getNumberOfDrinks());
         setHours_Field(person.getHoursSinceFirstDrink());
+        setResults_Field(person.toString());
     }
     
     /*
      * This should only be called once on initialization
      */
     private void startup() {
-        
-        
         // Initialize all fields
         initGenderChooser();
         initBAC_Field();
@@ -82,7 +80,7 @@ public class Calculator_View extends JPanel {
         initWeight_Field();
         initDrinks_Field();
         initHours_Field();
-        //this.add(mainPanel());
+        initResults_Field();
         this.add(mainPanel());
     }
     
@@ -97,6 +95,7 @@ public class Calculator_View extends JPanel {
         panel.add(weightPanel());
         panel.add(drinkPanel());
         panel.add(hoursPanel());
+        panel.add(resultsPanel());
         return panel;
     }
     
@@ -160,8 +159,15 @@ public class Calculator_View extends JPanel {
         return panel;
     }
     
+    private JPanel resultsPanel() {
+        JPanel panel = new JPanel();
+        panel.setLayout(panelLayout);
+        panel.add(results_Field);
+        return panel;
+    }
+    
     private void initGenderChooser() {
-        String[] sexes = {"Male", "Female"};
+        String[] sexes = person.getGenders();
         genderChooser = new JComboBox(sexes);
     }
     
@@ -240,5 +246,14 @@ public class Calculator_View extends JPanel {
     
     public JTextField getHours_Field() {
         return hours_Field;
+    }
+    
+    private void initResults_Field() {
+        results_Field = new JLabel();
+        results_Field.setText(person.toString());
+    }
+    
+    private void setResults_Field(String results) {
+        results_Field.setText(results);
     }
 }

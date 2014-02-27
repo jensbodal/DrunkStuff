@@ -50,8 +50,8 @@ public class BAC_Calculator {
     }
     
     private enum DistributionRatio {
-        MALE ("MALE", 0.73),
-        FEMALE ("FEMALE", 0.66);
+        MALE ("Male", 0.73),
+        FEMALE ("Female", 0.66);
         
         String gender;
         double ratio;

@@ -6,8 +6,8 @@ package drunkstuff.calculator;
  */
 public class Person implements abs {
     
-    public static final String FEMALE = "FEMALE";
-    public static final String MALE = "MALE";
+    public static final String FEMALE = "Female";
+    public static final String MALE = "Male";
     public static final int MINIMUM_AGE = 12;
     public static final double DEFAULT_WEIGHT = 150;
     public static final int DEFAULT_AGE = 21;
@@ -40,8 +40,13 @@ public class Person implements abs {
         setBAC(calc.getBAC());
     }
     
+    public String[] getGenders() {
+        String[] genders = {MALE, FEMALE};
+        return genders;
+    }
+    
     private void setGender(String gender) {
-        switch(gender.toUpperCase()) {
+        switch(gender) {
             case FEMALE: 
                 this.gender = FEMALE;
                 break;
@@ -87,10 +92,10 @@ public class Person implements abs {
     
     public String AmIDrunk() {
         if (BAC >= legality.getLegalBAC()) {
-            return "yes";
+            return "Drunk";
         }
         else {
-            return "no";
+            return "Sober";
         }
     }
     
@@ -149,4 +154,9 @@ public class Person implements abs {
         }
     }
 
+    @Override
+    public String toString() {
+        return String.format("Your BAC is %.4f, you are legally %s", 
+                getBAC(), AmIDrunk());
+    }
 }
