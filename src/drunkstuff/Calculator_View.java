@@ -5,7 +5,10 @@
 package drunkstuff;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Rectangle;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -15,9 +18,14 @@ import javax.swing.JTextField;
  */
 public class Calculator_View extends JPanel {
     private final int v_WIDTH = 400;
-    private final int v_HEIGHT = 400;
+    private final int v_HEIGHT = 100;
     private final int X = 10;
     private final int Y = 10;
+    private final Dimension fieldDimensions = new Dimension(50, 20);
+    //asdf
+    public Rectangle bounds = new Rectangle(X, Y, v_WIDTH, v_HEIGHT);
+    
+    
     private JComboBox sexChooser;
     private JTextField BAC_Field;
     private JTextField age_Field;
@@ -26,7 +34,6 @@ public class Calculator_View extends JPanel {
     private JTextField hours_Field;
     //
     private BorderLayout layout; // = new BorderLayout();
-    private JTextField age;
     private JPanel panel;
     private Person person;
     
@@ -39,6 +46,9 @@ public class Calculator_View extends JPanel {
         this.person = person;
         setBAC_Field(person.getBAC());
         setAge_Field(person.getAge());
+        setWeight_Field(person.getWeight());
+        setDrinks_Field(person.getNumberOfDrinks());
+        setHours_Field(person.getHoursSinceFirstDrink());
     }
     
     private void startup() {
@@ -50,8 +60,17 @@ public class Calculator_View extends JPanel {
         initSexChooser();
         initBAC_Field();
         initAge_Field();
+        initWeight_Field();
+        initDrinks_Field();
+        initHours_Field();
         this.add(mainPanel());
-        
+        // Add all panels
+//        this.add(sexChooser);
+//        this.add(BAC_Field);
+//        this.add(age_Field);
+//        this.add(weight_Field);
+//        this.add(drinks_Field);
+//        this.add(hours_Field);
     }
     
     private JPanel mainPanel() {
@@ -59,6 +78,9 @@ public class Calculator_View extends JPanel {
         panel.add(sexChooser);
         panel.add(BAC_Field);
         panel.add(age_Field);
+        panel.add(weight_Field);
+        panel.add(drinks_Field);
+        panel.add(hours_Field);
         return this.panel;
     }
     
@@ -78,6 +100,7 @@ public class Calculator_View extends JPanel {
     
     private void initBAC_Field() {
         BAC_Field = new JTextField();
+        BAC_Field.setPreferredSize(fieldDimensions);
         BAC_Field.setText(String.valueOf(this.person.getBAC()));
         BAC_Field.setEditable(false);
     }
@@ -89,10 +112,58 @@ public class Calculator_View extends JPanel {
     
     private void initAge_Field() {
         age_Field = new JTextField();
+        age_Field.setPreferredSize(fieldDimensions);
         age_Field.setText(String.valueOf(this.person.getAge()));
     }
     
     private void setAge_Field(int age) {
         age_Field.setText(String.valueOf(age));
+    }
+    
+    public JTextField getAge_Field() {
+        return age_Field;
+    }
+    
+    private void initWeight_Field() {
+        weight_Field = new JTextField();
+        weight_Field.setPreferredSize(fieldDimensions);
+        weight_Field.setText(String.valueOf(this.person.getWeight()));
+    }
+    
+    private void setWeight_Field(double weight) {
+        weight_Field.setText(String.valueOf(weight));
+    }
+    
+    public JTextField getWeight_Field() {
+        return weight_Field;
+    }
+    
+    private void initDrinks_Field() {
+        drinks_Field = new JTextField();
+        drinks_Field.setPreferredSize(fieldDimensions);
+        drinks_Field.setText(String.valueOf(this.person.getNumberOfDrinks()));
+    }
+    
+    private void setDrinks_Field(double drinks) {
+        drinks_Field.setText(String.valueOf(drinks));
+    }
+    
+    public JTextField getDrinks_Field() {
+        return drinks_Field;
+    }
+    
+    private void initHours_Field() {
+        hours_Field = new JTextField();
+        hours_Field.setPreferredSize(fieldDimensions);
+        hours_Field.setText(String.valueOf
+                (this.person.getHoursSinceFirstDrink()));
+    }
+    
+    private void setHours_Field(double hours) {
+        hours_Field.setText(String.valueOf(hours));
+    }
+    
+    public JTextField getHours_Field() {
+        return hours_Field;
     }
 }

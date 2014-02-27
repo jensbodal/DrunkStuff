@@ -6,10 +6,13 @@ package drunkstuff;
  */
 public class Person implements abs {
     
-    private final String FEMALE = "FEMALE";
-    private final String MALE = "MALE";
-    private final int MINIMUM_AGE = 12;
-    
+    public static final String FEMALE = "FEMALE";
+    public static final String MALE = "MALE";
+    public static final int MINIMUM_AGE = 12;
+    public static final double DEFAULT_WEIGHT = 150;
+    public static final int DEFAULT_AGE = 21;
+    public static final double DEFAULT_DRINKS = 7;
+    public static final double DEFAULT_HOURS = 9;
     private double numberOfDrinks;
     private double weight;
     private double hours; // likely moved 
@@ -21,11 +24,7 @@ public class Person implements abs {
     private BAC_Calculator calc;
     
     public Person() {
-        setGender("Male");
-        setWeight(this.weight);
-        setAge(this.age);
-        setNumberOfDrinks(this.numberOfDrinks);
-        setHoursSinceLastDrink(this.hours);
+        this(MALE, DEFAULT_WEIGHT, DEFAULT_AGE, DEFAULT_DRINKS, DEFAULT_HOURS);
     }   
     
     public Person(String gender, double weight, int age, 
@@ -36,7 +35,8 @@ public class Person implements abs {
         setNumberOfDrinks(drinks);
         setHoursSinceLastDrink(hours);
         calc = new BAC_Calculator(this);
-        setBAC();
+        BAC = calc.getBAC();
+        setBAC(calc.getBAC());
     }
     
     private void setGender(String gender) {
@@ -66,7 +66,7 @@ public class Person implements abs {
     
     private void setWeight(double weight) {
         if (weight < 0) {
-            weight = 0;
+            weight = DEFAULT_WEIGHT;
         }
         this.weight = weight;
     }
@@ -93,8 +93,8 @@ public class Person implements abs {
         }
     }
     
-    private void setBAC() {
-        this.BAC = calc.getBAC();
+    private void setBAC(double BAC) {
+        this.BAC = BAC;
     }
     
     public double getNumberOfDrinks() {
@@ -108,7 +108,7 @@ public class Person implements abs {
     
     @Override
     public double getBAC() {
-        return BAC;
+        return this.BAC;
     }
     
     public double getWeight() {

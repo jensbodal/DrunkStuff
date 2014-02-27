@@ -1,5 +1,8 @@
 package drunkstuff;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 /**
  *
  * @author jensb
@@ -19,7 +22,14 @@ public class BAC_Calculator {
     }
     
     public double getBAC() {
-        return BAC;
+        return roundDouble(BAC, 4);
+    }
+    
+    private double roundDouble(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+        BigDecimal bd = new BigDecimal(value);
+        bd = bd.setScale(places, RoundingMode.HALF_UP);
+        return bd.doubleValue();
     }
     
     private double alcoholAbsorbed() {
